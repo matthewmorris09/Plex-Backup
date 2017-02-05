@@ -19,7 +19,7 @@ mkdir $backupFolder
 
 # 7zip backup
 # Zip the file / a = 'add' / mx = method and level of compression (9 is the highest or "Ultra" in 7z)
-7z a -mx=9 $backup7z $plexServer
+7z a -mx=9 $backup7z $plexServer -xr!Cache
 
 # Export Registry Key
 Reg export $plexRegistry $backupReg
