@@ -23,6 +23,9 @@ echo "Creating a new folder for today's backup"
 # Make a new directory for the backup
 mkdir $backupFolder
 
+echo "Backup Folder created!"
+echo "Starting the 7zip backup of the Plex Server"
+
 # 7zip backup
 # Zip the file / a = 'add' / mx = method and level of compression (9 is the highest or "Ultra" in 7z)
 7z a -mx=9 $backup7z $plexServer -xr!Cache
