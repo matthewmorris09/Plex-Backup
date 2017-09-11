@@ -6,8 +6,8 @@ Stop-Process -force -processname "Plex*"
 echo "Plex Server is off"
 
 # Finds 7zip to use in any directory
-if (-not (test-path "$env:ProgramFiles\7-Zip\7z.exe")) {throw "$env:ProgramFiles\7-Zip\7z.exe needed"} 
-set-alias 7z "$env:ProgramFiles\7-Zip\7z.exe"  
+if (-not (test-path "$env:ProgramFiles\7-Zip\7z.exe")) {throw "$env:ProgramFiles\7-Zip\7z.exe needed"}
+set-alias 7z "$env:ProgramFiles\7-Zip\7z.exe"
 
 # Variables to use
 $date = Get-Date -Format yyyy-MM-dd
@@ -27,8 +27,8 @@ echo "Backup Folder created!"
 echo "Starting the 7zip backup of the Plex Server"
 
 # 7zip backup
-# Zip the file / a = 'add' / mx = method and level of compression (9 is the highest or "Ultra" in 7z)
-7z a -mx=9 $backup7z $plexServer -xr!Cache
+# Zip the file / a = 'add' / mx = method and level of compression (9 is the highest or "Ultra" in 7z) / v = volume to create a multivolume archive
+7z a -mx=9 $backup7z $plexServer -xr!Cache -v10g
 
 echo "Plex Server backup complete!"
 echo "Time to make a copy of the Registry key"
